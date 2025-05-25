@@ -1,3 +1,6 @@
+# Custom ignore paths for the current project
+saucedemo-tests/tests-examples/
+
 # Logs
 logs
 *.log
