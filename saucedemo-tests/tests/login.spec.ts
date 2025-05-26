@@ -18,7 +18,7 @@ test.describe('Login Tests', () => {
   });
 
   test('Invalid login with wrong password', async ({ page }) => {
-    await loginPage.login(process.env.USERNAME!, 'wrong_pass');
+    await loginPage.login(process.env.SAUCE_USERNAME!, 'wrong_pass');
     const error = await loginPage.getErrorMessage();
     await expect(error).toBeVisible();
   });

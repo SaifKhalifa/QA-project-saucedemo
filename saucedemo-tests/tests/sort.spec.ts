@@ -13,14 +13,14 @@ test.describe('Sort Feature', () => {
     await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
   });
 
-  test('Sort A-Z (Alphabetical)', async ({ page }) => {
-    const productsPage = new ProductsPage(page);    
-    await expect(productsPage.itemNames.first()).toBeVisible({ timeout: 10000 });
-    await productsPage.sortBy('Name (A to Z)');
-    const names = await productsPage.getItemNames();
-    const sorted = [...names].sort();
-    expect(names).toEqual(sorted);
-  });
+test('Sort by Name: Z to A', async ({ page }) => {
+  const productsPage = new ProductsPage(page);
+  await productsPage.sortBy('Name (Z to A)');
+  const names = await productsPage.getItemNames();
+  const sorted = [...names].sort().reverse(); 
+  expect(names).toEqual(sorted);
+});
+
 
   test('Sort by Price: High to Low', async ({ page }) => {
     const productsPage = new ProductsPage(page);
